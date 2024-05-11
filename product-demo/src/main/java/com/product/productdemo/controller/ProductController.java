@@ -17,7 +17,8 @@ public class ProductController {
             new Product("1236", "Samsung Galaxy Note 20", "High-end device with S Pen for productivity and large display.", 999, "Samsung"),
             new Product("1237", "Google Pixel 5", "Compact, yet powerful device with excellent camera and stock Android.", 699, "Google"),
             new Product("1238", "OnePlus 9", "Powerful performance with Hasselblad camera for enhanced photo quality.", 729, "OnePlus"),
-            new Product("1239", "Xiaomi Mi 11", "Top-tier performance with innovative features at a competitive price.", 749, "Xiaomi")
+            new Product("1239", "Xiaomi Mi 11", "Top-tier performance with innovative features at a competitive price.", 749, "Xiaomi"),
+            new Product("1240", "Xiaomi Mi 13T Pro", "Top of Xiaomi.", 899, "Xiaomi")
     );
 
     //BTVN Buoi 1
