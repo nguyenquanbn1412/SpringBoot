@@ -12,8 +12,8 @@ public class InitDB implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        ProductDB.books = fileReader.readFile("products.json");
+        ProductDB.products = fileReader.readFile("products.json");
 
-        System.out.println("Số lượng Products = " + ProductDB.books.size());
+        System.out.println("Số lượng Products = " + ProductDB.products.size());
     }
 }

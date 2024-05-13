@@ -1,5 +1,6 @@
-package com.product.productdemo.dao;
+package com.product.productdemo.dao.impl;
 
+import com.product.productdemo.dao.ProductDAO;
 import com.product.productdemo.model.Product;
 import com.product.productdemo.utils.file.IFileReader;
 import org.springframework.beans.factory.annotation.Autowired;

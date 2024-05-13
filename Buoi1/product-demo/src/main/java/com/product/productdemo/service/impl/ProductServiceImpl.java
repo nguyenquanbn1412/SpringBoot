@@ -1,7 +1,8 @@
-package com.product.productdemo.service;
+package com.product.productdemo.service.impl;
 
 import com.product.productdemo.dao.ProductDAO;
 import com.product.productdemo.model.Product;
+import com.product.productdemo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
