@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Max Price Product by Brand</title>
+</head>
+<body>
+<h1>Max Price Product by Brand</h1>
+<div th:if="${product}">
+    <p>ID: <span th:text="${product.id}"></span></p>
+    <p>Name: <span th:text="${product.name}"></span></p>
+    <p>Description: <span th:text="${product.description}"></span></p>
+    <p>Price: <span th:text="${product.price}"></span></p>
+    <p>Brand: <span th:text="${product.brand}"></span></p>
+</div>
+<div th:unless="${product}">
+    <p>No product found for the specified brand.</p>
+</div>
+</body>
+</html>
