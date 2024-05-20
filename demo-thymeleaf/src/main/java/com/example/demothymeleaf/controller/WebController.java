@@ -103,10 +103,14 @@ public class WebController {
 
     @GetMapping("/books/search")
     public String searchBooks(@RequestParam(required = false) String title, Model model) {
-        List<Book> result = books.stream()
-                .filter(book -> title == null || book.getTitle().toLowerCase().contains(title.toLowerCase()))
-                .collect(Collectors.toList());
+        List<Book> result = new ArrayList<>();
+        if (title != null && !title.trim().isEmpty()) {
+            result = books.stream()
+                    .filter(book -> book.getTitle().toLowerCase().contains(title.toLowerCase()))
+                    .collect(Collectors.toList());
+        }
         model.addAttribute("searchResults", result);
+        model.addAttribute("title", title);
         return "book-search";
     }
 }
