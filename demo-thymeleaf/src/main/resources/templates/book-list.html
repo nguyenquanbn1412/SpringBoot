@@ -45,17 +45,6 @@
 
 <br>
 
-<!--<button th:classappend="${pageData.getCurrentPage() == 1 ? 'disabled' : ''}">-->
-<!--    <a th:href="@{/books?page={page} (page=${pageData.getCurrentPage - 1})}">Trang trước</a>-->
-<!--</button>-->
-<!--<button th:each="number : ${#numbers.sequence(1, pageData.getTotalPages())}"-->
-<!--        th:classappend="${pageData.getCurrentPage() == number} ? 'active' : ''">-->
-<!--    <a th:href="@{/books?page={page} (page=${number})}" th:text="${number}">1</a>-->
-<!--</button>-->
-<!--<button th:classappend="${pageData.getCurrentPage() == pageData.getTotalPages() ? 'disabled' : ''}">-->
-<!--    <a th:href="@{/books?page={page} (page=${pageData.getCurrentPage + 1})}">Trang sau</a>-->
-<!--</button>-->
-
 <button class="btn btn-prev"
         th:classappend="${pageData.getCurrentPage() == 1 ? 'disabled' : ''}">
     <span>Trang trước</span>
@@ -121,10 +110,6 @@
             window.location.href = `/books?page=${currentPage}`;
         })
     })
-    // Nếu currentPage = 3
-    // Bấm vào trang trước: alert('Trang hiện tại: 2')
-    // Bấm vào trang sau: alert('Trang hiện tại: 4')
-    // Bấm vào trang 5: alert('Trang hiện tại: 5')
 </script>
 </body>
 </html>

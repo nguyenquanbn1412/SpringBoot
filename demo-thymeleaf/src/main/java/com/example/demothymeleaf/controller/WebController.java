@@ -44,23 +44,10 @@ public class WebController {
 
     @GetMapping("/")
     public String getHome(Model model) {
-        model.addAttribute("book", books.get(0));
+//        model.addAttribute("book", books.get(0));
         model.addAttribute("books", books);
         return "index";
     }
-
-    /*
-     * Dữ liệu trên 1 trang (content) -> tính startIndex, endIndex -> cắt list
-     * Có bao nhiêu item trên 1 trang (pageSize) = 5
-     * Tổng số trang (totalPages) 5
-     * Tổng số phần tử (totalElements)= 21
-     * Trang hiện tại (currentPage) bắt đầu từ 1
-     * Trang đầu tiên currentPage = 1
-     * Trang cuối cùng currentPage = totalPages
-     * */
-
-    // localhost:8080/books?page=2&pageSize=10
-    // localhost:8080/books
     @GetMapping("/books")
     public String getBookList(Model model,
                               @RequestParam(required = false, defaultValue = "1") int page,
@@ -79,10 +66,6 @@ public class WebController {
                 .orElse(null);
         model.addAttribute("book", book);
 
-        // Tìm kiếm các sách liên quan (
-        // filter - cùng tác giả và khác ID,
-        // limit - giới hạn 4 cuốn,
-        // sort - sắp xếp theo năm xuất bản giảm dần)
         if (book != null) {
             List<Book> relateBooks = books.stream()
                     .filter(b -> b.getAuthor().equals(book.getAuthor()) && b.getId() != book.getId())
