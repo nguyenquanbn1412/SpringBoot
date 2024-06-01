@@ -10,7 +10,7 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../../static/web-assets/css/login-style.css" />
+    <link rel="stylesheet"  th:href="@{/web-assets/css/movie-style.css}" />
   </head>
   <body>
     <header>
@@ -68,154 +68,33 @@
     <section class="py-4">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center">
-          <h3 class="text-uppercase mb-3">Danh sach phim bo</h3>
+          <h3 class="text-uppercase mb-3">Danh sách phim lẻ</h3>
         </div>
-        <div class="row">
-          <div class="col-2">
-            <div class="movie-item">
-              <div class="movie-poster rounded overflow-hidden">
-                <img
-                  src="https://i.mpcdn.top/c/a6aGKZe/khi-em-chay-ve-moi-thoi-khong.jpg?1716660506"
-                  alt=""
-                />
-                <p class="mt-2">Khi em chay ve moi thoi khong</p>
+        <div class="row g-3">
+          <div class="col-6 col-md-4 col-lg-3" th:each="movie : ${pageData.content}">
+            <a th:href="@{/phim/{id}/{slug}(id=${movie.id}, slug=${movie.slug})}"
+               class="text-decoration-none text-dark">
+              <div class="movie-item shadow-sm">
+                <div class="movie-poster">
+                  <img th:src="${movie.poster}" alt=""/>
+                  <div class="movie-title" th:text="${movie.name}">Movie Name</div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="movie-item">
-              <div class="movie-poster rounded overflow-hidden">
-                <img
-                  src="https://i.mpcdn.top/c/a6aGKZe/khi-em-chay-ve-moi-thoi-khong.jpg?1716660506"
-                  alt=""
-                />
-                <p class="mt-2">Khi em chay ve moi thoi khong</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="movie-item">
-              <div class="movie-poster rounded overflow-hidden">
-                <img
-                  src="https://i.mpcdn.top/c/a6aGKZe/khi-em-chay-ve-moi-thoi-khong.jpg?1716660506"
-                  alt=""
-                />
-                <p class="mt-2">Khi em chay ve moi thoi khong</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="movie-item">
-              <div class="movie-poster rounded overflow-hidden">
-                <img
-                  src="https://i.mpcdn.top/c/a6aGKZe/khi-em-chay-ve-moi-thoi-khong.jpg?1716660506"
-                  alt=""
-                />
-                <p class="mt-2">Khi em chay ve moi thoi khong</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="movie-item">
-              <div class="movie-poster rounded overflow-hidden">
-                <img
-                  src="https://i.mpcdn.top/c/a6aGKZe/khi-em-chay-ve-moi-thoi-khong.jpg?1716660506"
-                  alt=""
-                />
-                <p class="mt-2">Khi em chay ve moi thoi khong</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="movie-item">
-              <div class="movie-poster rounded overflow-hidden">
-                <img
-                  src="https://i.mpcdn.top/c/a6aGKZe/khi-em-chay-ve-moi-thoi-khong.jpg?1716660506"
-                  alt=""
-                />
-                <p class="mt-2">Khi em chay ve moi thoi khong</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="movie-item">
-              <div class="movie-poster rounded overflow-hidden">
-                <img
-                  src="https://i.mpcdn.top/c/a6aGKZe/khi-em-chay-ve-moi-thoi-khong.jpg?1716660506"
-                  alt=""
-                />
-                <p class="mt-2">Khi em chay ve moi thoi khong</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="movie-item">
-              <div class="movie-poster rounded overflow-hidden">
-                <img
-                  src="https://i.mpcdn.top/c/a6aGKZe/khi-em-chay-ve-moi-thoi-khong.jpg?1716660506"
-                  alt=""
-                />
-                <p class="mt-2">Khi em chay ve moi thoi khong</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="movie-item">
-              <div class="movie-poster rounded overflow-hidden">
-                <img
-                  src="https://i.mpcdn.top/c/a6aGKZe/khi-em-chay-ve-moi-thoi-khong.jpg?1716660506"
-                  alt=""
-                />
-                <p class="mt-2">Khi em chay ve moi thoi khong</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="movie-item">
-              <div class="movie-poster rounded overflow-hidden">
-                <img
-                  src="https://i.mpcdn.top/c/a6aGKZe/khi-em-chay-ve-moi-thoi-khong.jpg?1716660506"
-                  alt=""
-                />
-                <p class="mt-2">Khi em chay ve moi thoi khong</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="movie-item">
-              <div class="movie-poster rounded overflow-hidden">
-                <img
-                  src="https://i.mpcdn.top/c/a6aGKZe/khi-em-chay-ve-moi-thoi-khong.jpg?1716660506"
-                  alt=""
-                />
-                <p class="mt-2">Khi em chay ve moi thoi khong</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-2">
-            <div class="movie-item">
-              <div class="movie-poster rounded overflow-hidden">
-                <img
-                  src="https://i.mpcdn.top/c/a6aGKZe/khi-em-chay-ve-moi-thoi-khong.jpg?1716660506"
-                  alt=""
-                />
-                <p class="mt-2">Khi em chay ve moi thoi khong</p>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
-        <nav aria-label="..." class="d-flex justify-content-center mt-3">
+        <nav aria-label="Page navigation" class="d-flex justify-content-center mt-4">
           <ul class="pagination">
-            <li class="page-item disabled">
-              <a class="page-link">Truoc</a>
+            <li class="page-item" th:classappend="${pageData.hasPrevious()} ? '' : 'disabled'">
+              <a class="page-link" th:href="@{/phim-bo(page=${pageData.number - 1}, limit=${pageData.size})}">Trước</a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active" aria-current="page">
-              <a class="page-link" href="#">2</a>
+            <li class="page-item" th:each="i : ${#numbers.sequence(1, pageData.totalPages)}"
+                th:classappend="${pageData.number + 1 == i} ? 'active'">
+              <a class="page-link" th:href="@{/phim-bo(page=${i}, limit=${pageData.size})}" th:text="${i}">1</a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">Sau</a>
+            <li class="page-item" th:classappend="${pageData.hasNext()} ? '' : 'disabled'">
+              <a class="page-link"
+                 th:href="@{/phim-bo(page=${pageData.number + 1}, limit=${pageData.size})}">Sau</a>
             </li>
           </ul>
         </nav>
