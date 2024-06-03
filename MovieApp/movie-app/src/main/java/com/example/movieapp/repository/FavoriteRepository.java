@@ -1,8 +1,9 @@
 package com.example.movieapp.repository;
 
+import com.example.movieapp.entity.Favorite;
 import com.example.movieapp.entity.Movie;
 import com.example.movieapp.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface FavoriteRepository  extends JpaRepository<User, Integer> {
+public interface FavoriteRepository  extends JpaRepository<Favorite, Integer> {
 }

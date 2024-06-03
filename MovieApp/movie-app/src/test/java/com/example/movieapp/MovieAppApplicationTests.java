@@ -1,8 +1,9 @@
 package com.example.movieapp;
 
-import com.example.movieapp.entity.Movie;
+import com.example.movieapp.entity.*;
 import com.example.movieapp.model.enums.MovieType;
-import com.example.movieapp.repository.MovieRepository;
+import com.example.movieapp.model.enums.UserRole;
+import com.example.movieapp.repository.*;
 import com.github.javafaker.Faker;
 import com.github.slugify.Slugify;
 import org.junit.jupiter.api.Test;
@@ -16,7 +17,16 @@ import java.util.List;
 class MovieAppApplicationTests {
     @Autowired
     private MovieRepository movieRepository;
-
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private CountryRepository countryRepository;
+    @Autowired
+    private GenreRepository genreRepository;
+    @Autowired
+    private DirectorRepository directorRepository;
+    @Autowired
+    private ActorRepository actorRepository;
     @Test
     void save_movies() {
         Faker faker = new Faker();
@@ -42,7 +52,94 @@ class MovieAppApplicationTests {
             movieRepository.save(movie);
         }
     }
+    @Test
+    void save_users() {
+        Faker faker = new Faker();
 
+        for (int i = 0; i < 30; i++) {
+            String name = faker.name().fullName();
+            String password = faker.internet().password();
+            User user = User.builder()
+                    .name(name)
+                    .email(faker.internet().emailAddress())
+                    .avatar("https://placehold.co/600x400?text=" + name)
+                    .password(password)
+                    .role(UserRole.values()[faker.number().numberBetween(0, UserRole.values().length - 1)])
+                    .createdAt(LocalDateTime.now())
+                    .updatedAt(LocalDateTime.now())
+                    .build();
+            userRepository.save(user);
+        }
+    }
+    @Test
+    void save_countries() {
+        Faker faker = new Faker();
+        Slugify slugify = Slugify.builder().build();
+        for (int i = 0; i < 20; i++) {
+            String name = faker.country().name();
+            Country country = Country.builder()
+                    .name(name)
+                    .slug(slugify.slugify(name))
+                    .createdAt(LocalDateTime.now())
+                    .updatedAt(LocalDateTime.now())
+                    .build();
+            countryRepository.save(country);
+        }
+    }
+
+    @Test
+    void save_genres() {
+        Faker faker = new Faker();
+        Slugify slugify = Slugify.builder().build();
+        for (int i = 0; i < 20; i++) {
+            String name = faker.book().genre();
+            Genre genre = Genre.builder()
+                    .name(name)
+                    .slug(slugify.slugify(name))
+                    .createdAt(LocalDateTime.now())
+                    .updatedAt(LocalDateTime.now())
+                    .build();
+            genreRepository.save(genre);
+        }
+    }
+
+    @Test
+    void save_directors() {
+        Faker faker = new Faker();
+        Slugify slugify = Slugify.builder().build();
+
+        for (int i = 0; i < 30; i++) {
+            String name = faker.name().fullName();
+            Director director = Director.builder()
+                    .name(name)
+                    .slug(slugify.slugify(name))
+                    .avatar("https://placehold.co/600x400?text=" + name)
+                    .bio(faker.lorem().paragraph())
+                    .createdAt(LocalDateTime.now())
+                    .updatedAt(LocalDateTime.now())
+                    .build();
+            directorRepository.save(director);
+        }
+    }
+
+    @Test
+    void save_actors() {
+        Faker faker = new Faker();
+        Slugify slugify = Slugify.builder().build();
+
+        for (int i = 0; i < 100; i++) {
+            String name = faker.name().fullName();
+            Actor actor = Actor.builder()
+                    .name(name)
+                    .slug(slugify.slugify(name))
+                    .avatar("https://placehold.co/600x400?text=" + name)
+                    .bio(faker.lorem().paragraph())
+                    .createdAt(LocalDateTime.now())
+                    .updatedAt(LocalDateTime.now())
+                    .build();
+            actorRepository.save(actor);
+        }
+    }
     @Test
     void movie_methods_test() {
         // SELECT
