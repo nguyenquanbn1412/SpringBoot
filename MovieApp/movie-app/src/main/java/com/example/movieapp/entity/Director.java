@@ -6,23 +6,23 @@ import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDateTime;
 
-@ToString
-@Builder
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
+@Builder
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "directors")
-@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Director {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    @Column(nullable = false)
     String name;
+
     String slug;
+
     String avatar;
 
     @Column(columnDefinition = "TEXT")

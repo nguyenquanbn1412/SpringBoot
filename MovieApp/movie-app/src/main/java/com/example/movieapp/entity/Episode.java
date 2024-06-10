@@ -1,21 +1,19 @@
 package com.example.movieapp.entity;
 
-import com.example.movieapp.model.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDateTime;
 
-@ToString
-@Builder
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
+@Builder
+@FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
 @Table(name = "episodes")
-@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Episode {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,12 +21,15 @@ public class Episode {
 
     String name;
     Integer duration;
-    Integer display_order;
-
-    String video_url;
+    String videoUrl;
+    Integer displayOrder;
     Boolean status;
 
     LocalDateTime createdAt;
     LocalDateTime updatedAt;
     LocalDateTime publishedAt;
+
+    @ManyToOne
+    @JoinColumn(name = "movie_id")
+    Movie movie;
 }
