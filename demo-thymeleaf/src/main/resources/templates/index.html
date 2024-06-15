@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Home page 789</h1>
+<h2>Thong tin sach</h2>
+<ul>
+    <li th:text="${book.id}"></li>
+    <li th:text="${book.title}"></li>
+    <li th:text="${book.author}"></li>
+    <li th:text="${book.year}"></li>
+</ul>
+
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>Title</td>
+        <td>Author</td>
+        <td>Year</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.year}"></td>
+    </tr>
+    </tbody>
+</table>
+
+
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>
